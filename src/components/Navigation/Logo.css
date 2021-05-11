@@ -1,0 +1,14 @@
+.logo-div {
+    display: flex;
+    align-content: flex-start;
+}
+
+.logo-img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.logo-text {
+    font-size: x-large;
+}

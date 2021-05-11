@@ -1,0 +1,8 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sout {
+    padding-right: 5%;
+}

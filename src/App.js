@@ -17,7 +17,7 @@ const options={
 	},
 	particles: {
 		color: {
-			value: "#732BD3",
+			value: "#FFFFFF", /*732BD3*/
 		},
 		links: {
 			color: "#FFB6F6",
@@ -30,10 +30,10 @@ const options={
 			enable: true,
 		},
 		move: {
-			direction: "none",
+			direction: "top",
 			enable: true,
-			outMode: "bounce",
-			speed: 10,
+			// outMode: "bounce",
+			speed: 5,
 			straight: false,
 		},
 		number: {
@@ -47,7 +47,7 @@ const options={
 			value: 0.4,
 		},
 		shape: {
-			type: "circle",
+			type: ["circle", "triangle", "square"],
 		},
 		size: {
 			random: true,

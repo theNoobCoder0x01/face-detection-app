@@ -11,3 +11,16 @@
 	width: 100vw;
 	height: 50px;
 }
+
+.particles-canvas {
+	background: linear-gradient(to top, #FDB99B, #CF8BF3, #A770EF);
+}
+
+.particles {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}

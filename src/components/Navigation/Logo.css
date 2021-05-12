@@ -1,14 +1,16 @@
 .logo-div {
-    display: flex;
-    align-content: flex-start;
+	display: flex;
+	align-content: flex-start;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .logo-img {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
 }
 
 .logo-text {
-    font-size: x-large;
+	font-size: x-large;
+	margin: auto 0;
 }

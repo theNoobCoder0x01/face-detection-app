@@ -1,3 +1,13 @@
 .App {
-  text-align: center;
+	text-align: center;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.sized-box {
+	width: 100vw;
+	height: 50px;
 }

@@ -1,0 +1,40 @@
+.text {
+	font-size: 100%;
+}
+
+.form {
+	width: 80%;
+	max-width: 700px;
+	background:
+		radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+		radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #fb1;
+	background-size: 20px 20px;
+	padding: 25px;
+}
+
+#link-input {
+	font-size: 15px;
+	border: none;
+	border-radius: 10px;
+	padding: 5px 9px;
+}
+
+#link-input:focus {
+	border: none;
+	outline: none;
+}
+
+.button-grow {
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	transition: all .2s ease-in-out;
+}
+
+.button-grow:hover {
+	transform: scale(1.05);
+}
+
+.button-grow:active {
+	transform: scale(0.95);
+}

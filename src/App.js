@@ -66,6 +66,34 @@ function App() {
 
 	const onButtonPress = (event) => {
 		console.log("Click");
+
+		var myHeaders = new Headers();
+		myHeaders.append("Authorization", "Key 59a739a807b0417990b5bb0987b3ac04");
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+		"inputs": [
+			{
+			"data": {
+				"image": {
+				"url": "https://samples.clarifai.com/metro-north.jpg"
+				}
+			}
+			}
+		]
+		});
+
+		var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow'
+		};
+
+		fetch("https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
 	}
 
 	return (

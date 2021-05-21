@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import './App.css';
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Particles from "react-tsparticles";
-import { useState } from 'react';
 
 const options={
 	fpsLimit: 60,

@@ -5,7 +5,7 @@ import Rank from "./components/Rank/Rank";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Particles from "react-tsparticles";
 
-const options={
+const options = {
 	fpsLimit: 60,
 	interactivity: {
 		detectsOn: "canvas",

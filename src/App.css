@@ -7,6 +7,10 @@
 	justify-content: center;
 }
 
+.center-mauto {
+	margin: 0 auto;
+}
+
 .sized-box {
 	width: 100vw;
 	height: 50px;

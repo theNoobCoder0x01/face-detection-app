@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Particles from "react-tsparticles";
+import FaceDetection from './components/FaceDetection/FaceDetection';
 
 const options = {
 	fpsLimit: 60,
@@ -73,13 +74,11 @@ function App() {
 
 		var raw = JSON.stringify({
 		"inputs": [
-			{
-			"data": {
+			{ "data": {
 				"image": {
-				"url": "https://samples.clarifai.com/metro-north.jpg"
+					"url": link
 				}
-			}
-			}
+			} }
 		]
 		});
 
@@ -102,8 +101,9 @@ function App() {
 			<div className="App">
 				<Navigation />
 				<Rank />
-				<ImageLinkForm inputChangeHandler={linkInputChangeHandler} onButtonPress={onButtonPress} link={link} />
-				{/* <FaceDetection /> */}
+				<ImageLinkForm inputChangeHandler={linkInputChangeHandler} onButtonPress={onButtonPress} link={link}>
+					<FaceDetection imgURL={link} />
+				</ImageLinkForm>
 			</div>
 		</>
 	);

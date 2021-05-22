@@ -6,6 +6,7 @@ import './ImageLinkForm.css';
 const ImageLinkForm = ({ children }) => {
 	const [link, setLink] = useState("");
 	const [shouldShowImage, setShouldShowImage] = useState(false);
+	const [boxes, setBoxes] = useState([]);
 
 	const linkInputChangeHandler = event => {
 		const text = event.target.value;
@@ -35,8 +36,7 @@ const ImageLinkForm = ({ children }) => {
 			)
 		)
 		console.log(boxes);
-		const canvas = document.getElementById("imageDiv");
-		
+		setBoxes(boxes);
 	}
 
 	const onButtonPress = event => {
@@ -87,7 +87,7 @@ const ImageLinkForm = ({ children }) => {
 							Detect
 					</button>
 				</div>
-				{shouldShowImage ? (<FaceDetection imgURL={link} />) : (<></>) }
+				{shouldShowImage ? (<FaceDetection imgURL={link} boxes={boxes} />) : (<></>) }
 			</div>
 		</div>
 	);

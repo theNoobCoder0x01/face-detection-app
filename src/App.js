@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
-import './App.css';
+import Particles from "react-tsparticles";
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
-import Particles from "react-tsparticles";
 import FaceDetection from './components/FaceDetection/FaceDetection';
+
+import './App.css';
 
 const options = {
 	fpsLimit: 60,
 	interactivity: {
 		detectsOn: "canvas",
-		modes: {
-			push: {
-				quantity: 4,
-			},
-		},
+		modes: { push: { quantity: 4, }, },
 	},
 	particles: {
-		color: {
-			value: "#FFFFFF", /*732BD3*/
-		},
+		color: { value: "#FFFFFF", /*732BD3*/ },
 		links: {
 			color: "#FFB6F6",
 			distance: 200,
@@ -27,9 +22,7 @@ const options = {
 			opacity: 0.6,
 			width: 0.7,
 		},
-		collisions: {
-			enable: true,
-		},
+		collisions: { enable: true, },
 		move: {
 			direction: "top",
 			enable: true,
@@ -41,28 +34,22 @@ const options = {
 			density: {
 				enable: true,
 				value_area: 100,
-			},
-			value: 6,
+			}, value: 6,
 		},
-		opacity: {
-			value: 0.4,
-		},
-		shape: {
-			type: ["circle", "triangle", "square"],
-		},
-		size: {
-			random: true,
-			value: 2.5,
-		},
+		opacity: { value: 0.4, },
+		shape: { type: ["circle", "triangle", "square"], },
+		size: { random: true, value: 2.5, },
 	},
 }
 
 function App() {
 	const [link, setLink] = useState("");
+	const [shouldShowImage, setShouldShowImage] = useState(false);
 
 	const linkInputChangeHandler = (event) => {
 		const text = event.target.value;
 		setLink(text);
+		setShouldShowImage(false);
 	}
 
 	const onButtonPress = (event) => {
@@ -73,26 +60,27 @@ function App() {
 		myHeaders.append("Content-Type", "application/json");
 
 		var raw = JSON.stringify({
-		"inputs": [
-			{ "data": {
-				"image": {
-					"url": link
-				}
-			} }
-		]
+			"inputs": [ { "data": {
+				"image": { "url": link, } }
+			} ]
 		});
 
 		var requestOptions = {
-		method: 'POST',
-		headers: myHeaders,
-		body: raw,
-		redirect: 'follow'
+			method: 'POST',
+			headers: myHeaders,
+			body: raw,
+			redirect: 'follow'
 		};
 
-		fetch("https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs", requestOptions)
+		fetch(
+			"https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs",
+			requestOptions
+		)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log('error', error));
+
+		setShouldShowImage(true);
 	}
 
 	return (
@@ -102,7 +90,7 @@ function App() {
 				<Navigation />
 				<Rank />
 				<ImageLinkForm inputChangeHandler={linkInputChangeHandler} onButtonPress={onButtonPress} link={link}>
-					<FaceDetection imgURL={link} />
+					{shouldShowImage ? (<FaceDetection imgURL={link} />) : (<></>) }
 				</ImageLinkForm>
 			</div>
 		</>

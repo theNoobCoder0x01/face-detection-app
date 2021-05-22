@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Particles from "react-tsparticles";
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
@@ -44,7 +44,10 @@ const options = {
 function App() {
 	return (
 		<>
-			<Particles className="particles" canvasClassName="particles-canvas" params={options} />
+			<Particles className="particles"
+				canvasClassName="particles-canvas"
+				params={options}
+			/>
 			<div className="App">
 				<Navigation />
 				<Rank />

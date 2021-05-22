@@ -7,7 +7,9 @@ const Navigation = () => {
 	return (
 		<nav className="nav">
 			<Logo />
-			<p className="sout f4 link dim black underline pointer">Sign Out</p>
+			<p className="sout f4 link dim black underline pointer">
+				Sign Out
+			</p>
 		</nav>
 	);
 }

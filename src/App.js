@@ -3,7 +3,6 @@ import Particles from "react-tsparticles";
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
-import FaceDetection from './components/FaceDetection/FaceDetection';
 
 import './App.css';
 
@@ -43,55 +42,13 @@ const options = {
 }
 
 function App() {
-	const [link, setLink] = useState("");
-	const [shouldShowImage, setShouldShowImage] = useState(false);
-
-	const linkInputChangeHandler = (event) => {
-		const text = event.target.value;
-		setLink(text);
-		setShouldShowImage(false);
-	}
-
-	const onButtonPress = (event) => {
-		console.log("Click");
-
-		var myHeaders = new Headers();
-		myHeaders.append("Authorization", "Key 59a739a807b0417990b5bb0987b3ac04");
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify({
-			"inputs": [ { "data": {
-				"image": { "url": link, } }
-			} ]
-		});
-
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-
-		fetch(
-			"https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs",
-			requestOptions
-		)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log('error', error));
-
-		setShouldShowImage(true);
-	}
-
 	return (
 		<>
 			<Particles className="particles" canvasClassName="particles-canvas" params={options} />
 			<div className="App">
 				<Navigation />
 				<Rank />
-				<ImageLinkForm inputChangeHandler={linkInputChangeHandler} onButtonPress={onButtonPress} link={link}>
-					{shouldShowImage ? (<FaceDetection imgURL={link} />) : (<></>) }
-				</ImageLinkForm>
+				<ImageLinkForm />
 			</div>
 		</>
 	);

@@ -5,42 +5,29 @@ import './ImageLinkForm.css';
 
 const ImageLinkForm = ({ children }) => {
 	const [link, setLink] = useState("");
-	const [shouldShowImage, setShouldShowImage] = useState(false);
+	const [detectPressed, setDetectPressed] = useState(false);
+	const [showImage, setShowImage] = useState(false);
 	const [boxes, setBoxes] = useState([]);
 
 	const linkInputChangeHandler = event => {
 		const text = event.target.value;
 		setLink(text);
-		setShouldShowImage(false);
-	}
-
-	const convertPercentagesToPixels = (region, imageElement) => {
-		const convertedRegion = region;
-		const imgWidth = imageElement.width;
-		const imgHeight = imageElement.height;
-		console.log("width: ", imgWidth);
-		console.log("height: ", imgHeight);
-		convertedRegion.top_row = region.top_row * imgHeight;
-		convertedRegion.bottom_row = region.bottom_row * imgHeight;
-		convertedRegion.left_col = region.left_col * imgWidth;
-		convertedRegion.right_col = region.right_col * imgWidth;
-		return convertedRegion;
+		setBoxes([]);
+		setShowImage(false);
 	}
 
 	const calculateBoxes = result => {
-		const imageElement = document.getElementById("image");
-		const regions = JSON.parse(result).outputs[0].data.regions;
-		const boxes = regions.map(
-			region => convertPercentagesToPixels(
-				region.region_info.bounding_box, imageElement
-			)
-		)
-		console.log(boxes);
+		const boxes = JSON.parse(result)
+			.outputs[0].data.regions
+			.map(region => region.region_info.bounding_box);
+
+		// console.log(boxes);
 		setBoxes(boxes);
+		setDetectPressed(true);
 	}
 
 	const onButtonPress = event => {
-		console.log("Click");
+		setBoxes([]);
 
 		var myHeaders = new Headers();
 		myHeaders.append("Authorization", "Key 59a739a807b0417990b5bb0987b3ac04");
@@ -59,12 +46,12 @@ const ImageLinkForm = ({ children }) => {
 			redirect: 'follow'
 		};
 
+		setShowImage(true);
+
 		fetch("https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs", requestOptions)
 			.then(response => response.text())
 			.then(result => calculateBoxes(result))
 			.catch(error => console.log('error', error));
-
-		setShouldShowImage(true);
 	}
 
 	return (
@@ -86,8 +73,9 @@ const ImageLinkForm = ({ children }) => {
 					>
 							Detect
 					</button>
+					{showImage ? (<FaceDetection imgURL={link} boxes={boxes} detectPressed={detectPressed} />) : (<></>) }
+					{/* <FaceDetection imgURL={link} boxes={boxes} detectPressed={detectPressed} /> */}
 				</div>
-				{shouldShowImage ? (<FaceDetection imgURL={link} boxes={boxes} />) : (<></>) }
 			</div>
 		</div>
 	);

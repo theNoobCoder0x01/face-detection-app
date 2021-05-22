@@ -1,0 +1,19 @@
+#image {
+    width: 95%;
+	max-width: 650px;
+    margin-top: 38px;
+}
+
+.faceBox {
+    position: absolute;
+    border: yellow solid 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.faceBox:hover {
+    box-shadow: 2px 2px 10px black inset, 2px 2px 10px black;
+    border-width: 3px;
+}

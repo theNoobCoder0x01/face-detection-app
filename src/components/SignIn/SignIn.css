@@ -1,0 +1,42 @@
+.nolink {
+    text-decoration: none;
+    color: black;
+}
+
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.5s;
+}
+.ripple:hover {
+    background: rgba(1, 1, 1, 0.2) radial-gradient(circle, transparent 1%, rgba(1, 1, 1, 0.2) 0%) center/15000%;
+}
+.ripple:active {
+    background-size: 100%;
+    transition: background 0s;
+}
+
+/* Button style */
+.button {
+    cursor: pointer;
+    outline: none;
+    margin-right: 4%;
+}
+
+.signin-form {
+    width: 90%;
+    max-width: 350px;
+    min-width: 250px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-fieldset {
+    width: 100%;
+}
+
+@media only screen and (max-width: 300px) {
+    .signin-form {
+        padding: 20px 5px;
+    }
+}

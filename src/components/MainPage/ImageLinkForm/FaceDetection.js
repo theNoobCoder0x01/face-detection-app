@@ -15,7 +15,8 @@ const useWindowSize = () => {
 	return size;
 }
 
-const FaceDetection = ({ imgURL, boxes, detectPressed }) => {
+const FaceDetection = ({ imgURL, boxes }) => {
+	// eslint-disable-next-line
 	const [width, height] = useWindowSize();
 
 	const convertPercentagesToPixels = ({ top_row, bottom_row, left_col, right_col }) => {

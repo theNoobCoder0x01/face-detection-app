@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Particles from "react-tsparticles";
 import Navigation from "./components/Navigation/Navigation";
-import Rank from "./components/Rank/Rank";
-import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
+import SignIn from './components/SignIn/SignIn';
+import MainPage from './components/MainPage/MainPage';
 
 import './App.css';
+import SignOut from './components/SignOut/SignOut';
+import Register from './components/Register/Register';
+import ErrorPage from './ErrorPage';
+
 
 const options = {
 	fpsLimit: 60,
@@ -41,7 +45,25 @@ const options = {
 	},
 }
 
-function App() {
+const App = () => {
+	// eslint-disable-next-line
+	const [route, setRoute] = useState("sigdnin");
+
+	const router = (r) => {
+		switch(route) {
+			case "signin":
+				return (<SignIn setRoute={setRoute} />);
+			case "signout":
+				return (<SignOut setRoute={setRoute} />);
+			case "register":
+				return (<Register setRoute={setRoute} />);
+			case "mainpage":
+				return (<MainPage />);
+			default:
+				return (<ErrorPage setRoute={setRoute}/>);
+		}
+	}
+
 	return (
 		<>
 			<Particles className="particles"
@@ -49,9 +71,8 @@ function App() {
 				params={options}
 			/>
 			<div className="App">
-				<Navigation />
-				<Rank />
-				<ImageLinkForm />
+				<Navigation route={route} setRoute={setRoute} />
+				{ router(route) }
 			</div>
 		</>
 	);

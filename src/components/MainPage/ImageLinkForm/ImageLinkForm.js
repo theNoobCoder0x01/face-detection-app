@@ -5,7 +5,6 @@ import './ImageLinkForm.css';
 
 const ImageLinkForm = ({ children }) => {
 	const [link, setLink] = useState("");
-	const [detectPressed, setDetectPressed] = useState(false);
 	const [showImage, setShowImage] = useState(false);
 	const [boxes, setBoxes] = useState([]);
 
@@ -21,9 +20,7 @@ const ImageLinkForm = ({ children }) => {
 			.outputs[0].data.regions
 			.map(region => region.region_info.bounding_box);
 
-		// console.log(boxes);
 		setBoxes(boxes);
-		setDetectPressed(true);
 	}
 
 	const onButtonPress = event => {
@@ -73,8 +70,7 @@ const ImageLinkForm = ({ children }) => {
 					>
 							Detect
 					</button>
-					{showImage ? (<FaceDetection imgURL={link} boxes={boxes} detectPressed={detectPressed} />) : (<></>) }
-					{/* <FaceDetection imgURL={link} boxes={boxes} detectPressed={detectPressed} /> */}
+					{showImage ? (<FaceDetection imgURL={link} boxes={boxes} />) : (<></>) }
 				</div>
 			</div>
 		</div>

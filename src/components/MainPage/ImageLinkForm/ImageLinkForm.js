@@ -53,7 +53,7 @@ const ImageLinkForm = ({ children }) => {
 
 	return (
 		<div>
-			<p className="text ma0 mb2">
+			<p className="f3 text ma0 mb2">
 				This magic brain will detect faces in your picture. Give it a try!!
 			</p>
 			<div className="form center-mauto br4 shadow-5">

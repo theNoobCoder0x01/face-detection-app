@@ -37,17 +37,16 @@ const options = {
 			density: {
 				enable: true,
 				value_area: 100,
-			}, value: 6,
+			}, value: 5,
 		},
-		opacity: { value: 0.4, },
+		opacity: { value: 0.5, },
 		shape: { type: ["circle", "triangle", "square"], },
-		size: { random: true, value: 2.5, },
+		size: { random: true, value: 3, },
 	},
 }
 
 const App = () => {
-	// eslint-disable-next-line
-	const [route, setRoute] = useState("sigdnin");
+	const [route, setRoute] = useState("signin");
 
 	const router = (r) => {
 		switch(route) {

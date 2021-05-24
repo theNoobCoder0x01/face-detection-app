@@ -21,16 +21,16 @@ const SignIn = ({ setRoute }) => {
 	}
 
 	return (
-		<main className="signin-form black-80 shadow-3 center">
-			<form className="w-100 tl">
+		<main className="signin-form black-80 shadow-3 center mb4">
+			<div className="w-100 tl">
 				<fieldset className="form-fieldset b--transparent">
 					<legend className="f4 fw6">Sign In</legend>
 					<div className="mt3">
-						<label className="db fw6 lh-copy f5" for="email-address">Email</label>
+						<label className="db fw6 lh-copy f5" htmlFor="email-address">Email</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="email" name="email-address"  id="email-address" />
 					</div>
 					<div className="mv3">
-						<label className="db fw6 lh-copy f5" for="password">Password</label>
+						<label className="db fw6 lh-copy f5" htmlFor="password">Password</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="password" name="password"  id="password" />
 					</div>
 				</fieldset>
@@ -45,10 +45,10 @@ const SignIn = ({ setRoute }) => {
 				</div>
 				<div className="lh-copy center mt3">
 					<p>
-						<a href="#0" className="f6 link dim black db">Forgot your password?</a>
+						<span className="f6 link dim black db pointer">Forgot your password?</span>
 					</p>
 				</div>
-			</form>
+			</div>
 		</main>
 	);
 }

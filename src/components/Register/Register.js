@@ -26,24 +26,24 @@ const Register = ({ setRoute }) => {
 	}
 
     return (
-		<main className="register-form black-80 shadow-3 center">
-			<form className="w-100 tl">
+		<main className="register-form black-80 shadow-3 center mb4">
+			<div className="w-100 tl">
 				<fieldset className="form-fieldset b--transparent">
 					<legend className="f4 fw6">Register</legend>
                     <div className="mt3">
-						<label className="db fw6 lh-copy f5" for="email-address">Name</label>
+						<label className="db fw6 lh-copy f5" htmlFor="email-address">Name</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="text" name="name"  id="name" />
 					</div>
 					<div className="mt3">
-						<label className="db fw6 lh-copy f5" for="email-address">Email</label>
+						<label className="db fw6 lh-copy f5" htmlFor="email-address">Email</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="email" name="email-address"  id="email-address" />
 					</div>
 					<div className="mv3">
-						<label className="db fw6 lh-copy f5" for="password">Password</label>
+						<label className="db fw6 lh-copy f5" htmlFor="password">Password</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="password" name="password"  id="password" />
 					</div>
                     <div className="mv3">
-						<label className="db fw6 lh-copy f5" for="password">Confirm Password</label>
+						<label className="db fw6 lh-copy f5" htmlFor="password">Confirm Password</label>
 						<input className="pa2 input-reset bn br3 outline-0 bg-white w-100" type="password" name="confirm-password"  id="confirm-password" />
 					</div>
 				</fieldset>
@@ -58,10 +58,10 @@ const Register = ({ setRoute }) => {
 				</div>
 				<div className="lh-copy center mt3">
                     <p className="f6 black db ml1">
-                        Already registered?&nbsp;<span className="f6 dim black" onClick={() => setRoute("signin")}>Sign In</span>
+                        Already registered?&nbsp;<span className="f6 dim black pointer" onClick={() => setRoute("signin")}>Sign In</span>
                     </p>
 				</div>
-			</form>
+			</div>
 		</main>
 	);
 }
